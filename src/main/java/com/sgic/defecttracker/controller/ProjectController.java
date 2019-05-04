@@ -19,32 +19,52 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.sgic.defecttracker.exception.ResourceNotFoundException;
+import com.sgic.defecttracker.model.Defect;
 import com.sgic.defecttracker.model.Project;
 import com.sgic.defecttracker.service.ProjectService;
 
 
 @RestController
 @RequestMapping("/project")
+@CrossOrigin(origins = "http://localhost:3000")
 public class ProjectController {
 
 @Autowired
 ProjectService projectService;
 	
    
-	@CrossOrigin(origins = "http://localhost:3000")
+
 	@PostMapping("/save")
 	public HttpStatus createProject(@Valid @RequestBody Project project) {
 		projectService.saveProject(project);
 		return HttpStatus.CREATED;
 	}
 	
-	@CrossOrigin(origins = "http://localhost:3000")
+
 	@GetMapping("/getall")
 	public List<Project> findProject(Project project){
 		List<Project> moduless = (List<Project>) projectService.findAll();
 		 return moduless;
 	}
 	
+	@GetMapping("getProjectById/{id}")
+	public Project getProjectById(@PathVariable("id") Long id) {
+		Project getProject = projectService.findProjectById(id);
+		return getProject;
+	}
+	
+	@PutMapping("/updateProject/{id}")
+	public ResponseEntity<Project> updateProject(@Valid @RequestBody Project project){
+		projectService.updateProject(project);
+		return new ResponseEntity<Project>(project, HttpStatus.NO_CONTENT);
+		
+	}
+	@DeleteMapping("deleteProject/{id}")
+	public void deleteProjectById(@PathVariable("id") Long id) {
+		projectService.deleteProjectById(id);
+		
+	}
+
 }
 
 	

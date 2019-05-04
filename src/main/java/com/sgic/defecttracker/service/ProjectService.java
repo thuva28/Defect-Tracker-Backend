@@ -13,4 +13,7 @@ public interface ProjectService {
 	public List<Project> findAll();
 	
 	Project findProjectById(Long id);
+	public void deleteProjectById(Long id);
+	void updateProject(Project project);
+	
 }

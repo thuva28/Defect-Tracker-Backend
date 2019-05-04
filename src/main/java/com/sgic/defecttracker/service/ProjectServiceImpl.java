@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.sgic.defecttracker.model.Defect;
 import com.sgic.defecttracker.model.Project;
 import com.sgic.defecttracker.repository.ProjectRepository;
 
@@ -27,6 +28,19 @@ public class ProjectServiceImpl implements ProjectService{
 	@Override
 	public Project findProjectById(Long id) {
 		return projectRepository.findProjectById(id);
+		
+	}
+
+	@Override
+	public void deleteProjectById(Long id) {
+		Project project = projectRepository.findProjectById(id);
+		projectRepository.delete(project);
+		
+	}
+
+	@Override
+	public void updateProject(Project project) {
+		projectRepository.save(project);
 		
 	}
 
