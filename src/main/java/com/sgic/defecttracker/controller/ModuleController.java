@@ -22,7 +22,6 @@ import com.sgic.defecttracker.service.ModuleService;
 import com.sgic.defecttracker.service.ProjectService;
 import com.sgic.defecttracker.service.UserService;
 import com.sgic.defecttracker.dto.Moduledto;
-import com.sgic.defecttracker.model.Defect;
 import com.sgic.defecttracker.model.Module;
 import com.sgic.defecttracker.model.Project;
 import com.sgic.defecttracker.model.User;

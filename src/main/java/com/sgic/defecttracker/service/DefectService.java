@@ -8,7 +8,7 @@ import com.sgic.defecttracker.model.Defect;
 
 
 
-@Service
+
 public interface DefectService {
 	void saveDefect(Defect defect);
 	public List<Defect> findAll();
