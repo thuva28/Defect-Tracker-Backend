@@ -23,7 +23,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class Module {
 	    @Id
 	    @GeneratedValue(strategy=GenerationType.IDENTITY)
-	    private Long moduleId;
+	    private Long id;
 	    
 	    private String name;
 	    
@@ -39,12 +39,13 @@ public class Module {
 
 		
 
-		public Long getModuleId() {
-			return moduleId;
+	
+		public Long getId() {
+			return id;
 		}
 
-		public void setModuleId(Long moduleId) {
-			this.moduleId = moduleId;
+		public void setId(Long id) {
+			this.id = id;
 		}
 
 		public String getName() {
